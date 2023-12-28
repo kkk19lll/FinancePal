@@ -102,6 +102,7 @@ public class MainController {
         }
         installTableViewWallet();
         installTableViewInvestment();
+        installPieChartResults();
         btnWallet.setOnAction(e -> {
             walletAnchorPane.setVisible(true);
             investmentsAnchorPane.setVisible(false);
@@ -139,6 +140,11 @@ public class MainController {
         priceIvestmentsTableColumn.setCellValueFactory(new PropertyValueFactory<>("price"));
 
         tableViewInvetsments.setItems(dbFunctions.getAllInvestments());
+    }
+
+    private void installPieChartResults() {
+        pieChartStatistics.setData(dbFunctions.setPieChart());
+        pieChartStatistics.setLegendVisible(false);
     }
 
 }

@@ -4,6 +4,7 @@ import com.example.financepal.models.Investment;
 import com.example.financepal.models.Wallet;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.chart.PieChart;
 
 import java.sql.*;
 
@@ -110,5 +111,23 @@ public class DbFunctions {
             System.out.println(e.getMessage());
             return requests;
         }
+    }
+
+    public ObservableList<PieChart.Data> setPieChart() {
+        ObservableList<PieChart.Data> data = FXCollections.observableArrayList();
+        try {
+            String query = String.format("select places, count(places) from results group by places");
+            Statement statement = connect_to_db().createStatement();
+            ResultSet resultSet = statement.executeQuery(query);
+            while (resultSet.next()) {
+                data.add(new PieChart.Data(
+                        resultSet.getString("count"),
+                        resultSet.getDouble("count")));
+                System.out.println(data.get(0));
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return data;
     }
 }
