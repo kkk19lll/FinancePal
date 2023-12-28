@@ -96,7 +96,7 @@ public class DbFunctions {
     public ObservableList<Investment> getAllInvestments() {
         ObservableList<Investment> requests = FXCollections.observableArrayList();
         try {
-            ResultSet resultSet = connect_to_db().createStatement().executeQuery("select * from wallets");
+            ResultSet resultSet = connect_to_db().createStatement().executeQuery("select * from investments");
             while (resultSet.next()) {
                 requests.add(new Investment(
                         resultSet.getString("id"),

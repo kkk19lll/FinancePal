@@ -101,6 +101,7 @@ public class MainController {
             updateWallet.setVisible(false);
         }
         installTableViewWallet();
+        installTableViewInvestment();
         btnWallet.setOnAction(e -> {
             walletAnchorPane.setVisible(true);
             investmentsAnchorPane.setVisible(false);
@@ -129,6 +130,15 @@ public class MainController {
         userWalletTableColumn.setCellValueFactory(new PropertyValueFactory<>("user_id"));
 
         tableViewWallet.setItems(dbFunctions.getAllWallets());
+    }
+
+    private void installTableViewInvestment() {
+        idInvestmentsTableColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
+        nameInvestmentsTableColumn.setCellValueFactory(new PropertyValueFactory<>("name_investment"));
+        descriptionInvestmentsTableColumn.setCellValueFactory(new PropertyValueFactory<>("description"));
+        priceIvestmentsTableColumn.setCellValueFactory(new PropertyValueFactory<>("price"));
+
+        tableViewInvetsments.setItems(dbFunctions.getAllInvestments());
     }
 
 }
