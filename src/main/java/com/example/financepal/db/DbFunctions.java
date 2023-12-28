@@ -1,5 +1,9 @@
 package com.example.financepal.db;
 
+import com.example.financepal.models.Wallet;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
 import java.sql.*;
 
 public class DbFunctions {
@@ -69,5 +73,22 @@ public class DbFunctions {
         return 201;
     }
 
-
+    public ObservableList<Wallet> getAllWallets() {
+        ObservableList<Wallet> requests = FXCollections.observableArrayList();
+        try {
+            ResultSet resultSet = connect_to_db().createStatement().executeQuery("select * from requests");
+            while (resultSet.next()) {
+                requests.add(new Wallet(
+                        resultSet.getString("id"),
+                        resultSet.getString("name_wallet"),
+                        resultSet.getInt("money_wallet"),
+                        resultSet.getInt("user_id")
+                ));
+            }
+            return requests;
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            return requests;
+        }
+    }
 }

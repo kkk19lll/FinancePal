@@ -2,6 +2,9 @@ package com.example.financepal;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import com.example.financepal.models.Investment;
+import com.example.financepal.models.Wallet;
 import javafx.fxml.FXML;
 import javafx.scene.chart.PieChart;
 import javafx.scene.control.TableColumn;
@@ -30,7 +33,7 @@ public class MainController {
     private TableColumn<?, ?> idInvestmentsTableColumn;
 
     @FXML
-    private TableColumn<?, ?> idWalletTableColumn;
+    private TableColumn<Wallet, String> idWalletTableColumn;
 
     @FXML
     private AnchorPane investmentsAnchorPane;
@@ -39,34 +42,34 @@ public class MainController {
     private AnchorPane mainAnchorPane;
 
     @FXML
-    private TableColumn<?, ?> moneyWalletTableColumn;
+    private TableColumn<Wallet, String> moneyWalletTableColumn;
 
     @FXML
-    private TableColumn<?, ?> nameInvestmentsTableColumn;
+    private TableColumn<Investment, String> nameInvestmentsTableColumn;
 
     @FXML
-    private TableColumn<?, ?> nameWalletTableColumn;
+    private TableColumn<Wallet, String> nameWalletTableColumn;
 
     @FXML
     private PieChart pieChartStatistics;
 
     @FXML
-    private TableColumn<?, ?> priceIvestmentsTableColumn;
+    private TableColumn<Investment, String> priceIvestmentsTableColumn;
 
     @FXML
     private AnchorPane statisticsAnchorPane;
 
     @FXML
-    private TableView<?> tableViewInvetsments;
+    private TableView<Investment> tableViewInvetsments;
 
     @FXML
-    private TableView<?> tableViewWallet;
+    private TableView<Wallet> tableViewWallet;
 
     @FXML
     private ImageView updateWallet;
 
     @FXML
-    private TableColumn<?, ?> userWalletTableColumn;
+    private TableColumn<Wallet, String> userWalletTableColumn;
 
     @FXML
     private AnchorPane walletAnchorPane;
