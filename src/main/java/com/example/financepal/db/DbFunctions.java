@@ -116,7 +116,7 @@ public class DbFunctions {
     public ObservableList<PieChart.Data> setPieChart() {
         ObservableList<PieChart.Data> data = FXCollections.observableArrayList();
         try {
-            String query = String.format("select places, count(places) from results group by places");
+            String query = String.format("select spending, count(user_id) from statistics group by spending");
             Statement statement = connect_to_db().createStatement();
             ResultSet resultSet = statement.executeQuery(query);
             while (resultSet.next()) {
