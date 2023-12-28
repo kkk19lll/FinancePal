@@ -8,7 +8,7 @@ module com.example.financepal {
     opens com.example.financepal to javafx.fxml;
     exports com.example.financepal;
 
-    opens com.example.requestdesktop.db to javafx.fxml;
+    opens com.example.financepal.db to javafx.fxml;
     exports com.example.financepal.db;
 
     opens com.example.financepal.models to javafx.fxml;

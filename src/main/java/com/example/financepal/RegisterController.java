@@ -55,19 +55,19 @@ public class RegisterController {
     void initialize() {
 
         btnLogin.setOnAction(e -> {
-            new HelloApplication().openNewScene(anchorPane, "/com/example/financepal/register-view.fxml", "Регистрация");
+            new HelloApplication().openNewScene(anchorPane, "/com/example/financepal/login-view.fxml", "Авторизацмя");
             anchorPane.getScene().getWindow().hide();
             Stage stage = new Stage();
             StageModel.setMyStage(stage);
-            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("register-view.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("login-view.fxml"));
             Scene scene = null;
             try {
-                scene = new Scene(fxmlLoader.load(), 339, 422);
+                scene = new Scene(fxmlLoader.load(), 339, 292);
             } catch (IOException ex) {
                 throw new RuntimeException(ex);
             }
             SceneModel.setMyScene(scene);
-            stage.setTitle("Регистрация");
+            stage.setTitle("Авторизацмя");
             stage.setScene(scene);
             stage.show();
         });
