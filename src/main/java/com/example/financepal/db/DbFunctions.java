@@ -1,5 +1,6 @@
 package com.example.financepal.db;
 
+import com.example.financepal.models.Investment;
 import com.example.financepal.models.Wallet;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -76,13 +77,32 @@ public class DbFunctions {
     public ObservableList<Wallet> getAllWallets() {
         ObservableList<Wallet> requests = FXCollections.observableArrayList();
         try {
-            ResultSet resultSet = connect_to_db().createStatement().executeQuery("select * from requests");
+            ResultSet resultSet = connect_to_db().createStatement().executeQuery("select * from wallets");
             while (resultSet.next()) {
                 requests.add(new Wallet(
                         resultSet.getString("id"),
                         resultSet.getString("name_wallet"),
                         resultSet.getInt("money_wallet"),
                         resultSet.getInt("user_id")
+                ));
+            }
+            return requests;
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            return requests;
+        }
+    }
+
+    public ObservableList<Investment> getAllInvestments() {
+        ObservableList<Investment> requests = FXCollections.observableArrayList();
+        try {
+            ResultSet resultSet = connect_to_db().createStatement().executeQuery("select * from wallets");
+            while (resultSet.next()) {
+                requests.add(new Investment(
+                        resultSet.getString("id"),
+                        resultSet.getString("name_investment"),
+                        resultSet.getString("description"),
+                        resultSet.getInt("price")
                 ));
             }
             return requests;

@@ -12,6 +12,7 @@ import javafx.scene.chart.PieChart;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 
@@ -122,7 +123,12 @@ public class MainController {
     }
 
     private void installTableViewWallet() {
+        idWalletTableColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
+        nameWalletTableColumn.setCellValueFactory(new PropertyValueFactory<>("name_wallet"));
+        moneyWalletTableColumn.setCellValueFactory(new PropertyValueFactory<>("money_wallet"));
+        userWalletTableColumn.setCellValueFactory(new PropertyValueFactory<>("user_id"));
 
+        tableViewWallet.setItems(dbFunctions.getAllWallets());
     }
 
 }
