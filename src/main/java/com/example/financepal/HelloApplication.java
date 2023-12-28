@@ -1,5 +1,7 @@
 package com.example.financepal;
 
+import com.example.financepal.models.SceneModel;
+import com.example.financepal.models.StageModel;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -10,9 +12,11 @@ import java.io.IOException;
 public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
+        StageModel.setMyStage(stage);
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("login-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 320, 240);
-        stage.setTitle("Hello!");
+        SceneModel.setMyScene(scene);
+        stage.setTitle("Авторизация");
         stage.setScene(scene);
         stage.show();
     }
