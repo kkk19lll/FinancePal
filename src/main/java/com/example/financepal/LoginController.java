@@ -155,7 +155,7 @@ public class LoginController {
             Stage stage = new Stage();
             StageModel.setMyStage(stage);
             FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("main-view.fxml"));
-            Scene scene = new Scene(fxmlLoader.load(), 723, 400);
+            Scene scene = new Scene(fxmlLoader.load(), 692, 413);
             SceneModel.setMyScene(scene);
             stage.setTitle("Главное меню");
             stage.setScene(scene);

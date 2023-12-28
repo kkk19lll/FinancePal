@@ -17,9 +17,21 @@
    <children>
       <Pane prefHeight="413.0" prefWidth="157.0" style="-fx-background-color: #003aff;">
          <children>
-            <Button layoutY="67.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="157.0" style="-fx-background-color: #003aff;" text="Бюджет" textFill="WHITE" />
-            <Button layoutY="118.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="157.0" style="-fx-background-color: #003aff;" text="Инвестиции" textFill="WHITE" />
-            <Button layoutY="159.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="157.0" style="-fx-background-color: #003aff;" text="Статистика" textFill="WHITE" />
+            <Button fx:id="btnWallet" layoutY="67.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="157.0" style="-fx-background-color: #003aff;" text="Бюджет" textFill="WHITE">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="btnInvestment" layoutY="118.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="157.0" style="-fx-background-color: #003aff;" text="Инвестиции" textFill="WHITE">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="btnStatistics" layoutY="159.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="157.0" style="-fx-background-color: #003aff;" text="Статистика" textFill="WHITE">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
             <Text fill="WHITE" layoutX="19.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="FinancePal">
                <font>
                   <Font name="Bad Script Regular" size="30.0" />
@@ -27,7 +39,7 @@
             </Text>
          </children>
       </Pane>
-      <AnchorPane fx:id="walletAnchorPane" layoutX="157.0" prefHeight="400.0" prefWidth="535.0" visible="false">
+      <AnchorPane fx:id="walletAnchorPane" layoutX="157.0" prefHeight="400.0" prefWidth="535.0">
          <children>
             <Text fill="#003aff" layoutX="230.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Бюджет" wrappingWidth="74.13671875">
                <font>
@@ -68,7 +80,7 @@
             </ImageView>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="investmentsAnchorPane" layoutX="157.0" prefHeight="412.0" prefWidth="535.0">
+      <AnchorPane fx:id="investmentsAnchorPane" layoutX="157.0" prefHeight="412.0" prefWidth="535.0" visible="false">
          <children>
             <Text fill="#003aff" layoutX="208.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Инвестиции" wrappingWidth="118.18359375">
                <font>

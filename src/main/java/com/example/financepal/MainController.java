@@ -3,10 +3,13 @@ package com.example.financepal;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import com.example.financepal.db.DbFunctions;
+import com.example.financepal.db.Variables;
 import com.example.financepal.models.Investment;
 import com.example.financepal.models.Wallet;
 import javafx.fxml.FXML;
 import javafx.scene.chart.PieChart;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.image.ImageView;
@@ -75,7 +78,50 @@ public class MainController {
     private AnchorPane walletAnchorPane;
 
     @FXML
+    private Button btnInvestment;
+
+    @FXML
+    private Button btnStatistics;
+
+    @FXML
+    private Button btnWallet;
+
+    Wallet wallet;
+
+    Investment investment;
+
+    private final DbFunctions dbFunctions = new DbFunctions();
+
+    @FXML
     void initialize() {
+        if (Variables.ACTIVE_USER_ROLE.equals("user")) {
+            addWallet.setVisible(false);
+            deleteWallet.setVisible(false);
+            updateWallet.setVisible(false);
+        }
+        installTableViewWallet();
+        btnWallet.setOnAction(e -> {
+            walletAnchorPane.setVisible(true);
+            investmentsAnchorPane.setVisible(false);
+            statisticsAnchorPane.setVisible(false);
+        });
+
+        btnInvestment.setOnAction(e -> {
+            walletAnchorPane.setVisible(false);
+            investmentsAnchorPane.setVisible(true);
+            statisticsAnchorPane.setVisible(false);
+        });
+
+        btnStatistics.setOnAction(e -> {
+            walletAnchorPane.setVisible(false);
+            investmentsAnchorPane.setVisible(false);
+            statisticsAnchorPane.setVisible(true);
+        });
+
+
+    }
+
+    private void installTableViewWallet() {
 
     }
 
